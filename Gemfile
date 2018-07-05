@@ -32,7 +32,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 gem 'rails-controller-testing'
-  gem 'rspec-rails', '~> 3.7.0', '>= 3.7.2'
+  #gem 'rspec-rails', '~> 3.7.0', '>= 3.7.2'
+  gem 'rspec-rails', '~> 3.5.0'
 gem 'sqlite3'
 end
 
@@ -46,10 +47,15 @@ end
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+#  gem 'spring'
+#  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+# Rspec files
+#group :development, :test do
+#  gem 'rspec-rails', '~> 3.7'
+#  gem 'rails-controller-testing'
+#end
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
