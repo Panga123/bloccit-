@@ -28,6 +28,10 @@ module Bloccit
     # the framework and any gems in your application.
 
     # Don't generate system test files.
-    config.generators.system_tests = nil
-  end
-end
+    #config.generators.system_tests = nil
+  #end
+#end
+
+    config.autoload_paths << File.join(config.root, "lib")
+   end
+ end
