@@ -1,3 +1,4 @@
+
 class AdvertisementsController < ApplicationController
   def index
     @advertisements = Advertisement.all
@@ -12,4 +13,11 @@ class AdvertisementsController < ApplicationController
 
   def create
   end
+
+  private
+
+  def advertisement_params
+    params.require(:advertisement).permit(:title, :body, :price)
+  end
+
 end

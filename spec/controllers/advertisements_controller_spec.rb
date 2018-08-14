@@ -4,8 +4,8 @@ include RandomData
 RSpec.describe AdvertisementsController, type: :controller do
   let (:my_ad) do
     Advertisement.create(
-      title: RandomData.random_sentence,
       id: 1,
+      title: RandomData.random_sentence,
       copy: RandomData.random_paragraph,
       price: 99
     )
