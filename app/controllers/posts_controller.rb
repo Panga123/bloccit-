@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 
   def create
   # #9
+  # when a user clicks save, create method is called
       @post = Post.new
       @post.title = params[:post][:title]
       @post.body = params[:post][:body]

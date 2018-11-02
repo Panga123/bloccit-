@@ -36,7 +36,7 @@ RSpec.describe PostsController, type: :controller do
          expect(assigns(:post)).to eq(my_post)
        end
      end
-
+##1 
    describe "GET new" do
          it "returns http success" do
            get :new
