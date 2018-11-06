@@ -8,27 +8,29 @@ class PostsController < ApplicationController
   end
 
   def new
-     @post = Post.new
+  #   @post = Post.new
   end
 
   def create
   # #9
-      @post = Post.new
-      @post.title = params[:post][:title]
-      @post.body = params[:post][:body]
+  # when a user clicks save, create method is called
+      # @post = Post.new
+      # @post.title = params[:post][:title]
+      # @post.body = params[:post][:body]
 
   # #10
-      if @post.save
+      # if @post.save
   # #11
-        flash[:notice] = "Post was saved."
-        redirect_to @post
-      else
+      #   flash[:notice] = "Post was saved."
+      #   redirect_to @post
+      # else
   # #12
-        flash.now[:alert] = "There was an error saving the post. Please try again."
-        render :new
-      end
+      #   flash.now[:alert] = "There was an error saving the post. Please try again."
+      #   render :new
+      # end
     end
 
   def edit
   end
+  
 end

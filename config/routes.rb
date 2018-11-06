@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
 
+resources :advertisements
+resources :posts
+  get 'advertisements/index'
+  get 'advertisements/show'
+  get 'advertisements/new'
+  get 'advertisements/create'
+  resources :advertisements
   resources :posts
 
-  get 'about' => 'welcome#about' 
+  get 'about' => 'welcome#about'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'welcome#index'
+  root to: 'welcome#index'
 
 end
