@@ -48,11 +48,16 @@ RSpec.describe AdvertisementsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
+    it "renders the #new view" do
+      get :new
+      expect(response).to render_template :new 
+    end
+
     it "instantiates @advertisement" do
       get :new
       expect(assigns(:advertisement)).not_to be_nil
     end
-  end 
+  end
 
 #   describe "POST create" do
 #     it "increases the number of advertisements by 1" do
