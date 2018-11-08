@@ -37,6 +37,10 @@ gem 'rails-controller-testing'
 gem 'sqlite3'
 end
 
+# gem "better_errors"
+# gem "binding_of_caller"
+
+
 gem 'better_errors', '~> 2.4'
 
 group :production do
@@ -51,6 +55,8 @@ group :development do
 #  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+  # gem "better_errors"
+  # gem "binding_of_caller"
 # Rspec files
 #group :development, :test do
 #  gem 'rspec-rails', '~> 3.7'

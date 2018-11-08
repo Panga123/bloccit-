@@ -50,7 +50,7 @@ RSpec.describe AdvertisementsController, type: :controller do
 
     it "renders the #new view" do
       get :new
-      expect(response).to render_template :new 
+      expect(response).to render_template :new
     end
 
     it "instantiates @advertisement" do

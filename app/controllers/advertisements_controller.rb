@@ -14,7 +14,7 @@ class AdvertisementsController < ApplicationController
   end
 
   def create
-   #  @advertisement = Advertisement.new
+     @advertisement = Advertisement.new
    #  @advertisement.title = params[:advertisement][:title]
    #  @advertisement.copy = params[:advertisement][:copy]
    #  @advertisement.price = params[:advertisement][:price]
@@ -26,7 +26,7 @@ class AdvertisementsController < ApplicationController
    #  else
    #    flash[:error] = "Error saving ad. Try again."
    #    render :new
-   # 
+   #
    # end
 
   end
