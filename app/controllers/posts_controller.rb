@@ -17,7 +17,8 @@ class PostsController < ApplicationController
   # when a user clicks save, create method is called
       @post = Post.new
       @post.title = params[:post][:title]
-      @post.body = params[:post][:body]
+      # @post.body = params[:post][:body]
+      @post.copy = params[:post][:copy]
 
   # #10
       if @post.save

@@ -18,7 +18,7 @@ class AdvertisementsController < ApplicationController
   end
 
   def create
-     @advertisement = Advertisement.new
+     @advertisement = Advertisement.new(advertisement_params)
 
     if @advertisement.save
       flash[:notice] = "Ad was saved."
@@ -37,7 +37,7 @@ class AdvertisementsController < ApplicationController
   private
 
   def advertisement_params
-    params.require(:advertisement).permit(:title, :body, :price)
+    params.require(:advertisement).permit(:title, :copy, :price)
   end
 
 end
