@@ -35,13 +35,10 @@ gem 'rails-controller-testing'
   #gem 'rspec-rails', '~> 3.7.0', '>= 3.7.2'
   gem 'rspec-rails', '~> 3.5.0'
 gem 'sqlite3'
+gem "better_errors"
+gem "binding_of_caller"
 end
 
-# gem "better_errors"
-# gem "binding_of_caller"
-
-
-gem 'better_errors', '~> 2.4'
 
 group :production do
   gem 'pg', '~> 0.20'
