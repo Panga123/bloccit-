@@ -22,13 +22,20 @@ posts = Post.all
   )
 end
 
-puts "#{Post.count}"
-Post.find_or_create_by(body: "Another unique body")
-puts "#{Post.count}"
+#Create Unique Post
+    upost = Post.find_or_create_by!(
+        title:"Ann Murray!", 
+        body: "Trying to figure out this code"
+    )
+upost.comments.find_or_create_by!(body: "Very tough indeed.")
 
-puts "#{Post.count}"
-Post.find_or_create_by(title: "A unique title", body: "A unique body")
-puts "#{Post.count}"
+# puts "#{Post.count}"
+# Post.find_or_create_by(body: "Another unique body")
+# puts "#{Post.count}"
+#
+# puts "#{Comment.count}"
+# Comment.find_or_create_by(body: "A unique comment")
+# puts "#{Comment.count}"
 
 puts "Seed finished"
 puts "#{Post.count} posts created"
