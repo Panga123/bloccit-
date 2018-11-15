@@ -1,3 +1,3 @@
 class Topic < ApplicationRecord
-  has_many :posts, dependent: :destroy
+  has_many :sponsoredposts, :posts, dependent: :destroy
 end
