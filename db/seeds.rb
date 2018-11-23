@@ -52,19 +52,22 @@ admin = User.create!(
   role:     'admin'
 )
 
+#Create a moderator
+moderator = User.create!(
+  name:     'Moderator User',
+  email:    'moderator@example.com',
+  password: 'sanfran456',
+  role:     'moderator'
+)
+
 # Create a member
 member = User.create!(
   name:     'Member User',
   email:    'member@example.com',
-  password: 'helloworld'
+  password: 'password',
+  role:     'member'
 )
 
-admin = User.create!(
-  name:     'Personal User',
-  email:    'ann@amurraypr.com',
-  password: 'helloworld',
-  role:     'admin'
-)
 
 puts "Seed finished"
 puts "#{User.count} users created"
