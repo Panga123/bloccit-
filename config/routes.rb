@@ -2,8 +2,7 @@ Rails.application.routes.draw do
 
   resources :topics do
     resources :posts, except: [:index]
-    # #34
-    # resources :posts, except: [:index]
+
 
   end
 
@@ -18,6 +17,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
+
+  post 'users/confirm' => 'users#confirm'
 
   resources :questions
   resources :advertisements

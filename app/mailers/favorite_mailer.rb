@@ -1,9 +1,6 @@
 class FavoriteMailer < ApplicationMailer
-  def new_comment(user, post, comment)
+  # def new_comment(user, post, comment)
   default from: "ann@amurraypr.com"
-
-
-
 
     # #18
     headers["Message-ID"] = "<comments/#{comment.id}@your-app-name.example>"
