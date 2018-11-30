@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   before_save { self.email = email.downcase if email.present? }
   #new
-  before_save { self.name = ApplicationHelper::format_name(self.name) if name.present? }
+  # before_save { self.name = ApplicationHelper::format_name(self.name) if name.present? }
   before_save { self.role ||= :member }
 
   validates :name, length: { minimum: 1, maximum: 100 }, presence: true
@@ -25,7 +25,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
-#new 
+#new
   enum role: [:member, :admin, :moderator]
 
   def favorite_for(post)
