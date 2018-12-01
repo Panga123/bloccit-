@@ -2,18 +2,15 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
 
-  # #1
+  #1
   let(:name) { RandomData.random_sentence }
   let(:description) { RandomData.random_paragraph }
   let(:title) { RandomData.random_sentence }
   let(:body) { RandomData.random_paragraph }
-  # #3
-  let(:topic) { Topic.create!(name: name, description: description) }
-  # #4
-  # #1
-  let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld") }
-  # #2
-  let(:post) { topic.posts.create!(title: title, body: body, user: user) }
+  #3
+  let(:topic) { create(:topic) }
+  let(:user) { create(:user) }
+  let(:post) { create(:post) }
 
   it { is_expected.to have_many(:comments) }
   it { is_expected.to have_many(:votes) }
@@ -29,17 +26,17 @@ RSpec.describe Post, type: :model do
   it { is_expected.to validate_length_of(:title).is_at_least(5) }
   it { is_expected.to validate_length_of(:body).is_at_least(20) }
 
-  # #2
+  #2
   describe "attributes" do
 
     it "has a title, body, and user attribute" do
-      expect(post).to have_attributes(title: title, body: body, user: user)
+      expect(post).to have_attributes(title: post.title, body: post.body)
 
     end
   end
 
   describe "voting" do
-    # #5
+    #5
     before do
       3.times { post.votes.create!(value: 1, user: user) }
       2.times { post.votes.create!(value: -1, user: user) }
@@ -47,30 +44,30 @@ RSpec.describe Post, type: :model do
       @down_votes = post.votes.where(value: -1).count
     end
 
-    # #6
+    #6
     describe "#up_votes" do
       it "counts the number of votes with value = 1" do
         expect( post.up_votes ).to eq(@up_votes)
       end
     end
 
-    # #7
+    #7
     describe "#down_votes" do
       it "counts the number of votes with value = -1" do
         expect( post.down_votes ).to eq(@down_votes)
       end
     end
 
-    # #8
+    #8
     describe "#points" do
       it "returns the sum of all down and up votes" do
         expect( post.points ).to eq(@up_votes - @down_votes)
       end
     end
-#end
+    #end
 
     describe "#update_rank" do
-      # #28
+      #28
       it "calculates the correct rank" do
         post.update_rank
         expect(post.rank).to eq (post.points + (post.created_at - Time.new(1970,1,1)) / 1.day.seconds)

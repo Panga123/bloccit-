@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 def show
   #retrieving a user instance and sets it to instance variable
   @user = User.find(params[:id])
+  @posts = @user.posts.visible_to(current_user)
 end
 
 end

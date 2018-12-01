@@ -3,10 +3,10 @@ include RandomData
 
 RSpec.describe Comment, type: :model do
 
-  let(:topic) { Topic.create!(name: RandomData.random_sentence, description: RandomData.random_paragraph) }
-  let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld") }
-  let(:post) { topic.posts.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph, user: user) }
-#1
+  let(:topic) { create(:topic) }
+  let(:user) { create(:user) }
+  let(:post) { create(:post) }
+  #1
   let(:comment) { Comment.create!(body: 'Comment Body', post: post, user: user) }
 
   # #2
@@ -20,27 +20,27 @@ RSpec.describe Comment, type: :model do
     it "should respond to body" do
       expect(comment).to respond_to(:body)
     end
-end
+  end
 
   describe "after_create" do
-   # #22
-       before do
-         @another_comment = Comment.new(body: 'Comment Body', post: post, user: user)
-       end
-  
-   # #23
-       it "sends an email to users who have favorited the post" do
-         favorite = user.favorites.create(post: post)
-         expect(FavoriteMailer).to receive(:new_comment).with(user, post, @another_comment).and_return(double(deliver_now: true))
+    # #22
+    before do
+      @another_comment = Comment.new(body: 'Comment Body', post: post, user: user)
+    end
 
-         @another_comment.save!
-       end
+    # #23
+    it "sends an email to users who have favorited the post" do
+      favorite = user.favorites.create(post: post)
+      expect(FavoriteMailer).to receive(:new_comment).with(user, post, @another_comment).and_return(double(deliver_now: true))
 
-   # #24
-       it "does not send emails to users who haven't favorited the post" do
-         expect(FavoriteMailer).not_to receive(:new_comment)
+      @another_comment.save!
+    end
 
-         @another_comment.save!
-       end
-     end
+    # #24
+    it "does not send emails to users who haven't favorited the post" do
+      expect(FavoriteMailer).not_to receive(:new_comment)
+
+      @another_comment.save!
+    end
+  end
 end
