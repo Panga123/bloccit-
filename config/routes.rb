@@ -15,7 +15,8 @@ Rails.application.routes.draw do
 
   end
 
-  resources :users, only: [:new, :create]
+# adding route for show action 
+  resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
 
   post 'users/confirm' => 'users#confirm'

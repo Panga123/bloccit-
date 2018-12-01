@@ -37,6 +37,7 @@ gem 'rails-controller-testing'
 gem 'sqlite3'
 gem "better_errors"
 gem "binding_of_caller"
+gem 'factory_girl_rails', '~> 4.0'
 end
 
 
@@ -73,5 +74,5 @@ gem 'bootstrap-sass'
 
 # Used for encrypting passwords
 gem 'bcrypt'
-#Handling environment variables, like email and password 
+#Handling environment variables, like email and password
 gem 'figaro', '1.0'

@@ -22,6 +22,9 @@ class UsersController < ApplicationController
       render :new
     end
   end
-
+def show
+  #retrieving a user instance and sets it to instance variable
+  @user = User.find(params[:id])
+end
 
 end
