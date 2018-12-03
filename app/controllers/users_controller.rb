@@ -22,10 +22,15 @@ class UsersController < ApplicationController
       render :new
     end
   end
-def show
-  #retrieving a user instance and sets it to instance variable
-  @user = User.find(params[:id])
-  @posts = @user.posts.visible_to(current_user)
-end
+  def show
+    #retrieving a user instance and sets it to instance variable
+    @user = User.find(params[:id])
+    @posts = @user.posts.visible_to(current_user)
+    @favorites = @user.favorites
+    @favorites_post_array = []
+    @favorites.each do |favorite|
+      @favorites_post_array << Post.find(favorite.post_id)
+    end
+  end
 
 end

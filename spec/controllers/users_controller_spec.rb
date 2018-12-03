@@ -69,8 +69,12 @@ RSpec.describe UsersController, type: :controller do
 
 
   describe "not signed in" do
-     #build a variable named factory user; created new method 
+     #build a variable named factory user; created new method
     let(:factory_user) { create(:user) }
+
+  #  assignment: Create a spec using create(:comments) and create(:votes)
+    let(:factory_votes) { create(:votes) }
+    let(:factory_comments) { create(:comments) }
 
     before do
       post :create, params: { user: new_user_attributes }

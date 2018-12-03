@@ -6,8 +6,10 @@ RSpec.describe Comment, type: :model do
   let(:topic) { create(:topic) }
   let(:user) { create(:user) }
   let(:post) { create(:post) }
+  #assignment - to pass test
+  let(:comment) { create(:comment) }
   #1
-  let(:comment) { Comment.create!(body: 'Comment Body', post: post, user: user) }
+  #let(:comment) { Comment.create!(body: 'Comment Body', post: post, user: user) }
 
   # #2
   it { is_expected.to belong_to(:post) }
@@ -18,7 +20,8 @@ RSpec.describe Comment, type: :model do
 
   describe "attributes" do
     it "should respond to body" do
-      expect(comment).to respond_to(:body)
+      #expect(comment).to respond_to(:body)
+      expect(comment).to have_attributes(body: comment.body)
     end
   end
 

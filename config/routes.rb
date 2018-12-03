@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   end
 
-# adding route for show action 
+# adding route for show action
   resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
 

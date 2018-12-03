@@ -125,4 +125,40 @@ RSpec.describe User, type: :model do
     end
   end
 
+#specs for knowing if user has comments or votes on posts
+  describe "#has_posts" do
+    it "returns false if the user doesn't have associated posts" do
+      expect(user.has_posts?).to eq false
+    end
+
+    it "returns true if the user has associated posts" do
+      user.posts << build(:post, user: user)
+      expect(user.has_posts?).to eq true
+    end
+  end
+
+  describe "#has_comments" do
+    it "returns false if the user doesn't have associated comments" do
+      expect(user.has_comments?).to eq false
+    end
+
+    it "returns true if the user has associated comments" do
+      user.posts << build(:post, user: user)
+      user.posts.first.comments << build(:comment, user: user)
+      expect(user.has_comments?).to eq true
+    end
+  end
+
+  describe "#has_favorites" do
+    it "returns false if the user doesn't have  favorites" do
+      expect(user.has_favorites?).to eq false
+    end
+
+  #   it "returns true if the user has  favorites" do
+  #     post = build(:post, user: user)
+  #     user.favorites << Favorite.create!(post: post)
+  #     expect(user.has_favorites?).to eq true
+  #   end
+   end
+
 end
